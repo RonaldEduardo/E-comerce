@@ -6,23 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./login.css">
     <title>Login</title>
-    <div id="star"></div>
-    <script>
-        // Número de estrelas
-        const numberOfStars = 100;
-
-        // Obtém a div com id "star"
-        const starContainer = document.getElementById("star");
-
-        // Gera estrelas aleatórias
-        for (let i = 0; i < numberOfStars; i++) {
-            const star = document.createElement("div");
-            star.className = "star";
-            star.style.top = `${Math.random() * 100}vh`; // Posição aleatória vertical
-            star.style.left = `${Math.random() * 100}vw`; // Posição aleatória horizontal
-            starContainer.appendChild(star);
-        }
-    </script>
     <form action="login.php" method="POST">
         <table width="51%" border="0" align="center" cellpadding="1" cellspacing="0">
             <tr>
