@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login.css">
+    <title>Login</title>
+    <div id="star"></div>
+    <script>
+        // Número de estrelas
+        const numberOfStars = 100;
+
+        // Obtém a div com id "star"
+        const starContainer = document.getElementById("star");
+
+        // Gera estrelas aleatórias
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement("div");
+            star.className = "star";
+            star.style.top = `${Math.random() * 100}vh`; // Posição aleatória vertical
+            star.style.left = `${Math.random() * 100}vw`; // Posição aleatória horizontal
+            starContainer.appendChild(star);
+        }
+    </script>
+    <form action="login.php" method="POST">
+        <table width="51%" border="0" align="center" cellpadding="1" cellspacing="0">
+            <tr>
+                <th colspan="2">
+                    <div align="center">Login</div>
+                </th>
+            </tr>
+            <tr>
+                <td width="33%" align="right">Login</td>
+                <td width="67">
+                    <input type="text" id="LoginUsuario" name="LoginUsuario">
+                </td>
+            </tr>
+            <tr>
+                <td width="3%" align="right">Senha</td>
+                <td width="67">
+                    <input type="password" id="SenhaUsuario" name="SenhaUsuario">
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" id="Enviar" name="Enviar" value="Enviar">
+                </td>
+            </tr>
+            </table>
+    </form>
+</head>
+<body>
+</body>
+</html>

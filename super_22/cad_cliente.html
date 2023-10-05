@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Cadastro de Usuarios</title>
+</head>
+
+<body>
+    <FORM NAME="form1" METHOD="POST" ACTION="Adm/cad_cliente.php">
+        <TABLE WIDTH="75%" BORDER="0" ALIGN="CENTER" CELLPADDING="1" CELLSPACING="3">
+            <TR>
+                <td colspan="2">
+                    <div align="center">
+                        Cadastro de Usuarios</div>
+                </td>
+            </tr>
+
+            <TR>
+                <TD WIDTH="50%" ALIGN="RIGHT">Categoria:</TD>
+                <TD WIDTH="50%">
+                    <INPUT NAME="Nome" ID="Nome" type="text">
+                </TD>
+
+            </TR>
+
+            <TR>
+                <TD WIDTH="50%" ALIGN="RIGHT">Nome:</TD>
+                <TD WIDTH="50%"><INPUT NAME="Cidade" ID="Cidade" type="text"></TD>
+            </TR>
+            <TR>
+                <TD WIDTH="50%" ALIGN="RIGHT">Estado:</TD>
+                <TD WIDTH="50%"><select NAME="Estado" ID="Estado">
+                        </option>
+                        <option value="SC">SC</option>
+                        <option value="PR">PR</option>
+                        <option value="RS">RS</option>
+                        <option value="SP">SP</option>
+                        <option value="RJ">RJ</option>
+                        <option value="MG">MG</option>
+                    </select></TD>
+            </TR>
+            <TR>
+                <TD WIDTH="50%" ALIGN="RIGHT">Email:</TD>
+                <TD WIDTH="50%"><INPUT NAME="Email" ID="Email" type="text"></TD>
+            </TR>
+            <TR>
+                <TD WIDTH="50%" ALIGN="RIGHT">Login:</TD>
+                <TD WIDTH="50%"><INPUT NAME="LoginUsuario" ID="Login" type="text"></TD>
+            </TR>
+            <TR>
+                <TD WIDTH="50%" ALIGN="RIGHT">Senha:</TD>
+                <TD WIDTH="50%"><INPUT NAME="SenhaUsuario" ID="Senha" type="password"></TD>
+            </TR>
+
+
+            <TR>
+                <TD ALIGN="RIGHT"></TD>
+                <TD WIDTH="50%">
+                    <INPUT NAME="Salvar" TYPE="SUBMIT" ID="Salvar" VALUE="Salvar">
+                    <INPUT NAME="Limpar" TYPE="RESET" ID="LIMPAR" VALUE="Limpar">
+                </TD>
+            </TR>
+        </TABLE>
+    </FORM>
+
+    <button onclick="window.location.href='Adm/opcoes.html'"><-Volta</button>
+</body>
+
+</html>
