@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Opções do ADM</title>
+    <title>Lista de Produtos</title>
 </head>
 
 <body>
@@ -12,8 +12,6 @@
     {// Converte a primeira letra de cada palavra para maiúscula
         return ucfirst(strtolower($str));
     }
-
-
 
     include("../conexao.php");
     $Query = "SELECT * FROM Produtos";
@@ -50,7 +48,7 @@
         print("<TD>" . upperStr($Registros['Nome']) . "</TD>");
         print("<TD>$Registros[valor]</TD>");
         print("<TD><a href=edt_produto.php?CodProduto=$Registros[CodProduto]>$Registros[CodProduto]</a></TD>");
-        print("<TD><a href=del_produtos.php?CodProduto=$Registros[CodProduto]>$Registros[CodProduto]</a></TD>");
+        print("<TD><a href=del_produto.php?CodProduto=$Registros[CodProduto]>$Registros[CodProduto]</a></TD>");
         print("</TR>");
     }
 
