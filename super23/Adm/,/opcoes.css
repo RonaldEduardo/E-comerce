@@ -1,0 +1,42 @@
+*{
+  border-radius: 2%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e4e4e3;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+table {
+  width: 50%;
+  border-collapse: collapse;
+  background-color: #F8F7F3;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+button {
+  background-color: #FF6000;
+  color: #F8F7F3;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #403D38;
+}
+
+b {
+  font-size: 18px;
+}
