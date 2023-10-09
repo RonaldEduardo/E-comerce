@@ -11,7 +11,7 @@ $resultado = mysqli_query($ConexaoId, $Query)
     or die("Não foi possível selecionar o produto");
 $registro = mysqli_fetch_array($resultado);
 ?>
-<form name="form1" method="post" action="edt_produto1.php">
+<form name="form1" method="post" action="edt_produto1.php" enctype="multipart/form-data">
     <table>
         <tr>
             <td>Atualizar produtos</td>
@@ -39,6 +39,10 @@ $registro = mysqli_fetch_array($resultado);
         <tr>
             <td>Valor:</td>
             <td><input name="Valor" id="Valor" type="text" value="<?php echo $registro['valor']; ?>"></td>
+        </tr>
+        <tr>
+            <td><label for="produto_imagem">Imagem do Produto:</label></td>
+            <td><input type="file" id="produto_imagem" name="produto_imagem" accept="image/*" required><br></td>
         </tr>
         <tr>
             <td>&nbsp;</td>

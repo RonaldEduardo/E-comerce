@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Produtos</title>
+    <link rel="stylesheet" href="./listaP.css">
 </head>
 
 <body>
     <?php
     function upperStr($str)
-    {// Converte a primeira letra de cada palavra para maiúscula
+    {
         return ucfirst(strtolower($str));
     }
 
@@ -17,7 +18,7 @@
     $Query = "SELECT * FROM Produtos";
     $Resultado = mysqli_query($ConexaoId, $Query) or die("Não foi possível selecionar a base");
     $Colunas = mysqli_num_fields($Resultado);
-    $LPP = 10;
+    $LPP = 5;
     $Total = mysqli_num_rows($Resultado);
     $Paginas = ceil($Total / $LPP);
 
@@ -33,7 +34,7 @@
 
     print("<center><TABLE Border = 1>");
     print("<TR>");
-    print("<TH>CodProduto</TH><TH>Categoria</TH><TH>Nome</TH><TH>Valor</TH><TH>Editar</TH><TH>Excluir</TH>");
+    print("<TH>Imagem</TH><TH>CodProduto</TH><TH>Categoria</TH><TH>Nome</TH><TH>Valor</TH><TH>Editar</TH><TH>Excluir</TH>");
     print("</TR>");
 
     while ($Registros = mysqli_fetch_array($Resultado)) {
@@ -41,8 +42,11 @@
         $SQL = "SELECT * FROM Categorias where CodCategoria ='$Registros[Categoria]'";
         $Result = mysqli_query($ConexaoId, $SQL);
         $Categoria = mysqli_fetch_array($Result);
+        // Obtém o caminho da imagem do banco de dados
+        $caminho_imagem = $Registros['imagem'];
 
         // Use os índices corretos para os campos Nome e Valor
+        print("<TD><img src='$caminho_imagem' width='100' height='100'></TD>");
         print("<TD>$Registros[CodProduto]</TD>");
         print("<TD>$Categoria[CodCategoria] - $Categoria[Descricao]</TD>");
         print("<TD>" . upperStr($Registros['Nome']) . "</TD>");
@@ -57,7 +61,7 @@
     if ($Pagina > 0) {
         $Menos = $Pagina - 1;
         $Link = "$_SERVER[PHP_SELF]?Pagina=$Menos";
-        print("<a href=$Link<Anterior</a>");
+        print("<a href=$Link>< Anterior</a>");
     }
 
     for ($Cont = 1; $Cont <= $Paginas; $Cont++) {
@@ -68,7 +72,7 @@
     if ($Pagina < $Paginas - 1) {
         $Mais = $Pagina + 1;
         $Link = "$_SERVER[PHP_SELF]?Pagina=$Mais";
-        print(" | <a href=$Link>Proxima</a>");
+        print(" | <a href=$Link>Próxima ></a>");
     }
     ?>
     <br>

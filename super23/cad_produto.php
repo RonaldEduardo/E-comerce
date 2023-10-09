@@ -9,7 +9,7 @@
 <body>
   <h2>Cadastro de Produto</h2>
 
-  <form action="Adm/cad_produto1.php" method="POST">
+  <form action="Adm/cad_produto1.php" method="POST" enctype="multipart/form-data">
     <label for="categoria">Categoria:</label>
     <select name="categoria" id="categoria">
       <?php
@@ -31,8 +31,12 @@
     <label for="valor">Valor:</label>
     <input type="text" id="valor" name="valor" required><br>
 
+    <label for="produto_imagem">Imagem do Produto:</label>
+    <input type="file" id="produto_imagem" name="produto_imagem" accept="image/*" required><br>
+
      <INPUT NAME="Salvar" TYPE="SUBMIT" ID="Salvar" VALUE="Cadastro Produto">
   </form>
+
 
   <br>
   <button onclick="window.location.href='Adm/opcoes.html'">Opções do Administrador</button>
