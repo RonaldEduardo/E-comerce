@@ -34,7 +34,7 @@
                         echo "<br><a href='Adm/opcoes.html'> ~> Opções</a>";
                         echo ("</>");
                     } else {
-                        echo "<br><a href='ver_produto.php'> ~> Produtos</a>";
+                        echo "<br><a href='Cliente/ver_produto.php'> ~> Produtos</a>";
                     }
                 } else {
                     echo "<script> window.alert('SENHA OU LOGIN INCORRETOS')</script>";
