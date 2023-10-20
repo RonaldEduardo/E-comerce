@@ -53,13 +53,15 @@ function lista($Tabela, $CamposExibidos = array(), $CampoEditar = false, $CampoE
         $caminho_imagem = $Registros['Imagem'];
         // Verifica se o valor do campo é um caminho de imagem
         print("<img src='$caminho_imagem' width='100' height='100'>");
+      } if ($Campo === 'Login' || $Campo === 'Senha') {
+        print($Registros[$Campo]);
       } else {
         // Se não for um campo de imagem, apenas exibe o valor
         print(ucwords(strtolower($Registros[$Campo])));
       }
       print("</td>");
     }
-    
+
     $Tabela = strtolower($Tabela);
 
     if ($CampoEditar) {
