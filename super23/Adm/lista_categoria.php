@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Lista de Categoria</title>
-  <link rel="stylesheet" href="./lista.css">
+  <link rel="stylesheet" href="../css/lista.css">
 </head>
 
 <body>
