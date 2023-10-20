@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Produtos</title>
-    <link rel="stylesheet" href="./listaP.css">
+    <link rel="stylesheet" href="./lista.css">
 </head>
 
 <body>
