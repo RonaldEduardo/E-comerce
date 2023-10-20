@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Salvar'])) {
           $caminho_temporario = $_FILES['produto_imagem']['tmp_name'];
 
           // Especifica o caminho de destino para onde você deseja mover o arquivo
-          $diretorio_destino = 'img/';
+          $diretorio_destino = '../img/';
 
           // Certifica-se de que o diretório de destino exista, se não, crie-o
           if (!file_exists($diretorio_destino)) {
