@@ -21,7 +21,7 @@
     print("O Email é $Registro[Email]");
     ?>
 
-    <form name="form1" method="post" action="validar_cliente.php">
+    <form name="form1" method="post" action="validar_clientes.php">
         <table width="75%" border="0" align="center" cellpadding="1" cellspacing="3">
             <tr>
                 <td width="50%" align="right">Código:</td>
