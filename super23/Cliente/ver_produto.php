@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Produtos Para Compra</title>
-  <link rel="stylesheet" href='css/lista.css'>
+  <link rel="stylesheet" href='../css/lista.css'>
 </head>
 
 <body>
   <?php
-  include('ListaVer.php');
+  include("../Adm/funçãoLista.php");
   $CamposExibir = array("Nome, Valor, Categoria, Imagem");
   lista('PRODUTOS', $CamposExibir);
   ?>
