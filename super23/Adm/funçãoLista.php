@@ -1,5 +1,5 @@
 <?php
-function lista($Tabela, $CamposExibidos = array(), $CampoEditar = false, $CampoExcluir = false, $CampoValidar = false)
+function lista($Tabela, $CamposExibidos = array(), $CampoEditar = false, $CampoExcluir = false, $CampoValidar = false, $CampoCompra= false)
 {
   include("../conexao.php");
   $CamposExibidosStr = empty($CamposExibidos) ? '*' : implode(", ", $CamposExibidos);
@@ -42,6 +42,9 @@ function lista($Tabela, $CamposExibidos = array(), $CampoEditar = false, $CampoE
   if ($CampoValidar) {
     print("<th>Validar</th>");
   }
+  if ($CampoCompra) {
+    print("<th>Compras</th>");
+  }
   print("</tr>");
 
   while ($Registros = mysqli_fetch_array($Resultado)) {
@@ -76,6 +79,9 @@ function lista($Tabela, $CamposExibidos = array(), $CampoEditar = false, $CampoE
     if ($CampoValidar) {
       // Use o valor do primeiro campo para criar o link de validar
       print("<td><a href=validar_{$Tabela}.php?$IdCampo={$Registros[$IdCampo]}>Validar</a></td>");
+    }
+    if ($CampoCompra) {
+      print("<td><a href=compra_{$Tabela}.php?$IdCampo={$Registros[$IdCampo]}>Comprar</a></td>");
     }
 
     print("</tr>");
