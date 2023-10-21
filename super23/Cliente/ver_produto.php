@@ -9,9 +9,10 @@
 
 <body>
   <?php
+  print("<h1>CU</h1>");
   include("../Adm/funçãoLista.php");
-  $CamposExibir = array("Nome, Valor, Categoria, Imagem");
-  lista('PRODUTOS', $CamposExibir);
+  $CamposExibir = array("CodProduto, Nome, Valor, Categoria, Imagem");
+  lista('PRODUTOS', $CamposExibir, false, false, false, true);
   ?>
   <br>
   <button onclick="window.location.href='login.php'">Voltar</button>
