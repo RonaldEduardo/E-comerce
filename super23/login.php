@@ -1,51 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Listas</title>
-</head>
-<body>
-    <font size="5">
-    <?php
-    include("conexao.php");
+<?php
+include("conexao.php");
 
-    if ($_POST) {
-        $LoginUsuario = $_POST["LoginUsuario"];
-        $SenhaUsuario = $_POST["SenhaUsuario"];
+function autenticarUsuario($conexao, $login, $senha)
+{
+    $stmt = $conexao->prepare("SELECT * FROM clientes WHERE Login=? AND Senha=?");
+    $stmt->bind_param("ss", $login, $senha);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    return $resultado->fetch_assoc();
+}
 
-        if (!$LoginUsuario || !$SenhaUsuario) {
-            echo "É necessário digitar login e senha <br>";
-        } else {
-            $Query = "SELECT * FROM clientes WHERE ";
-            $Query .= " Login='$LoginUsuario' AND ";
-            $Query .= " Senha='$SenhaUsuario'";
+session_start();
 
-            $Resultado = mysqli_query($ConexaoId, $Query);
+if ($_POST) {
+    $LoginUsuario = $_POST["LoginUsuario"];
+    $SenhaUsuario = $_POST["SenhaUsuario"];
 
-            if ($Resultado) {
-                $Registro = mysqli_fetch_array($Resultado);
+    if (!$LoginUsuario || !$SenhaUsuario) {
+        echo "É necessário digitar login e senha <br>";
+    } else {
+        $registro = autenticarUsuario($ConexaoId, $LoginUsuario, $SenhaUsuario);
 
-                if (
-                    $Registro['Login'] == $LoginUsuario &&
-                    $Registro['Senha'] == $SenhaUsuario
-                ) {
-                    if ($Registro["Login"] == "admin" && $Registro["Senha"] == "123456") {
-                        echo ("<type=text/java>");
-                        echo "<br><a href='Adm/opcoes.html'> ~> Opções</a>";
-                        echo ("</>");
-                    } else {
-                        echo "<br><a href='Cliente/ver_produto.php'> ~> Produtos</a>";
-                    }
-                } else {
-                    echo "<script> window.alert('SENHA OU LOGIN INCORRETOS')</script>";
-                    require_once("login.html");
-                }
+        if ($registro && $registro['Login'] == $LoginUsuario && $registro['Senha'] == $SenhaUsuario) {
+            $_SESSION['CodCliente'] = $registro['CodCliente'];
+            $_SESSION['NomeCliente'] = $registro['Nome'];
+
+            if ($registro["Login"] == "admin" && $registro["Senha"] == "123456") {
+                header("Location: Adm/opcoes.html");
+                exit();
             } else {
-                echo "Erro na consulta: " . mysqli_error($ConexaoId);
+                header("Location: Cliente/ver_produto.php");
+                exit();
             }
+        } else {
+            echo "<script> window.alert('SENHA OU LOGIN INCORRETOS')</script>";
+            require_once("login.html");
         }
     }
-    ?>
-    </font>
-</body>
-</html>
+}
+?>
+
