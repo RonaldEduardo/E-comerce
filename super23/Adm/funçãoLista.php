@@ -69,15 +69,12 @@ function lista($Tabela, $CamposExibidos = array(), $CampoEditar = false, $CampoE
     $Tabela = strtolower($Tabela);
 
     if ($CampoEditar) {
-      // Use o valor do primeiro campo para criar o link de editar
       print("<td><a href=edt_{$Tabela}.php?$IdCampo={$Registros[$IdCampo]}>Editar</a></td>");
     }
     if ($CampoExcluir) {
-      // Use o valor do primeiro campo para criar o link de excluir
       print("<td><a href=del_{$Tabela}.php?$IdCampo={$Registros[$IdCampo]}>Excluir</a></td>");
     }
     if ($CampoValidar) {
-      // Use o valor do primeiro campo para criar o link de validar
       print("<td><a href=validar_{$Tabela}.php?$IdCampo={$Registros[$IdCampo]}>Validar</a></td>");
     }
     if ($CampoCompra) {
