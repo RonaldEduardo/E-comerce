@@ -56,7 +56,7 @@
             </tr>
             <tr>
                 <td for="quantidade">Quantidade:</td>
-                <td><input type="number" name="Quantidade" id="Quantidade" required></td>
+                <td><input type="number" name="Quantidade" id="Quantidade" min="1" required></td>
                 <br>
             </tr>
             <tr>
